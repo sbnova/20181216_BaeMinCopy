@@ -1,5 +1,6 @@
 package kr.tjeit.a20181216_baemincopy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,8 +22,6 @@ public class MainActivity extends BaseActivity {
         setupEvents();
         setValues();
 
-
-
     }
 
 
@@ -33,7 +32,11 @@ public class MainActivity extends BaseActivity {
         koreaFoodBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "한식을 눌렀습니다.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "한식을 눌렀습니다.", Toast.LENGTH_SHORT).show();
+
+//                화면 이동
+                Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
+                startActivity(intent);
             }
         });
 

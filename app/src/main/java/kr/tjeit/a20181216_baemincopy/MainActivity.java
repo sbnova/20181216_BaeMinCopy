@@ -1,7 +1,6 @@
 package kr.tjeit.a20181216_baemincopy;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -12,11 +11,18 @@ public class MainActivity extends BaseActivity {
     LinearLayout koreaFoodBtn;
     LinearLayout bunsikBtn;
     LinearLayout japanesFoodBtn;
+    private LinearLayout cBtn;
+    private LinearLayout pizzaBtn;
+    private LinearLayout chinessBtn;
+    private LinearLayout jBtn;
+    private LinearLayout yasikBtn;
+    private LinearLayout stewBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         bindViews();
         setupEvents();
@@ -29,30 +35,47 @@ public class MainActivity extends BaseActivity {
     public void setupEvents() {
 
         //        한식버튼이 눌렸을때 할일.
-        koreaFoodBtn.setOnClickListener(new View.OnClickListener() {
+//        koreaFoodBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Toast.makeText(mContext, "한식을 눌렀습니다.", Toast.LENGTH_SHORT).show();
+//
+////                화면 이동
+//                Intent intent = new Intent(mContext, RestaurantListActivity.class);
+////                한식이 눌렸다는 사실을 레스토랑리스트 액티비티에 공지.(알려줌)
+//                intent.putExtra("음식종류", "한식");
+//                startActivity(intent);
+//            }
+//        });
+
+
+        View.OnClickListener foodKindClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "한식을 눌렀습니다.", Toast.LENGTH_SHORT).show();
+//                첫번째 방법 예시
+//                if(v.getId()  == R.id.cBtn){
+//                    Toast.makeText(mContext, "치킨 눌림", Toast.LENGTH_SHORT).show();
+//                }
+//                else if(v.getId() == R.id.pizzaBtn){
+//                    Toast.makeText(mContext, "피자 눌림", Toast.LENGTH_SHORT).show();
+//                }
 
-//                화면 이동
-                Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
-                startActivity(intent);
+//                두번째 방법 .XML에 작성한 태그를 이용.
+                Toast.makeText(mContext, v.getTag().toString(), Toast.LENGTH_SHORT).show();
             }
-        });
+        };
 
-        bunsikBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "분식을 눌렀습니다.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        koreaFoodBtn.setOnClickListener(foodKindClickListener);
+        bunsikBtn.setOnClickListener(foodKindClickListener);
+        japanesFoodBtn.setOnClickListener(foodKindClickListener);
+        cBtn.setOnClickListener(foodKindClickListener);
+        pizzaBtn.setOnClickListener(foodKindClickListener);
+        chinessBtn.setOnClickListener(foodKindClickListener);
+        jBtn.setOnClickListener(foodKindClickListener);
+        yasikBtn.setOnClickListener(foodKindClickListener);
+        stewBtn.setOnClickListener(foodKindClickListener);
 
-        japanesFoodBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "돈까스.회.일식을 눌렀습니다.", Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
     @Override
@@ -64,8 +87,14 @@ public class MainActivity extends BaseActivity {
     public void bindViews() {
         //        사실 읽을 필요가 전혀 없는 코드들.
 //        따로 메소드를 만들어서 밑으로 치워버림
-        koreaFoodBtn = findViewById(R.id.koreaFoodBtn);
-        bunsikBtn = findViewById(R.id.bunsikBtn);
-        japanesFoodBtn = findViewById(R.id.japanesFoodBtn);
+        this.stewBtn = (LinearLayout) findViewById(R.id.stewBtn);
+        this.yasikBtn = (LinearLayout) findViewById(R.id.yasikBtn);
+        this.jBtn = (LinearLayout) findViewById(R.id.jBtn);
+        this.chinessBtn = (LinearLayout) findViewById(R.id.chinessBtn);
+        this.pizzaBtn = (LinearLayout) findViewById(R.id.pizzaBtn);
+        this.cBtn = (LinearLayout) findViewById(R.id.cBtn);
+        this.japanesFoodBtn = (LinearLayout) findViewById(R.id.japanesFoodBtn);
+        this.bunsikBtn = (LinearLayout) findViewById(R.id.bunsikBtn);
+        this.koreaFoodBtn = (LinearLayout) findViewById(R.id.koreaFoodBtn);
     }
 }

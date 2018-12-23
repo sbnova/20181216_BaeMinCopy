@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">20181216_BaeMinCopy</string>
+
+    <string name="facebook_app_id">344405823045592</string> <string name="fb_login_protocol_scheme">fb344405823045592</string>
 </resources>

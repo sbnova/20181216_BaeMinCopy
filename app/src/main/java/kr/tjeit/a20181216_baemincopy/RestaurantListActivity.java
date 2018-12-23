@@ -6,10 +6,12 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.tjeit.a20181216_baemincopy.adapters.RestaurantAdapter;
 import kr.tjeit.a20181216_baemincopy.datas.Restaurant;
 
 public class RestaurantListActivity extends BaseActivity {
 
+    RestaurantAdapter mAdapter;
     List<Restaurant> restaurants = new ArrayList<Restaurant>();
     String foodKind;
     private android.widget.ListView listView;
@@ -36,6 +38,8 @@ public class RestaurantListActivity extends BaseActivity {
 
         fillRestaurants();
 
+        mAdapter = new RestaurantAdapter(mContext, restaurants);
+        listView.setAdapter(mAdapter);
     }
 
     private void fillRestaurants() {
